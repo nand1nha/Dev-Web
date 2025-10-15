@@ -12,8 +12,9 @@
 }
 
 #header #topo{
-    width: 100%;
+    max-width: 1000px;
     height: 100%;
+    margin: 0 auto;
 
     display: flex;
     flex-wrap: wrap;
@@ -24,7 +25,7 @@
     font-size: 22px;
     height: 100%;
     padding: 0px 20px;
-    width: 70%;
+    width: 50%;
 
     display: flex;
     align-items: center;
@@ -32,10 +33,10 @@
 
 #header #topo .menu{
     height: 100%;
-    width: 30%;
+    width: 50%;
 
     display: flex;
-    justify-content: space-around;
+    justify-content: end;
 }
 
 #header #topo .menu .box{
@@ -73,7 +74,6 @@
     width: 450px;
     height: 400px;
     font-size: 18px;
-    position: relative;
 }
 
 .img{
@@ -86,7 +86,6 @@
     width: 450px;
     height: 400px;
     font-size: 18px;
-    position: relative;
 }
 
 .conteudo .dir .top{
@@ -103,8 +102,7 @@
     box-shadow: 0 15px 35px rgba(112, 111, 111, 0.322);
     width: 100%;
     height: 10%;
-    position: absolute;
-    bottom: 0;
+    margin-top: -40px;
     
 }
 
@@ -118,15 +116,14 @@
     box-shadow: 0 15px 35px rgba(112, 111, 111, 0.322);
     width: 100%;
     height: 10%;
-    position: absolute;
     bottom: 0;
+    margin-top: -40px;
 }
 
 .conteudo .dir .top .card{
     box-shadow: 0 15px 35px rgba(112, 111, 111, 0.322);
     width: 100%;
     height: 10%;
-    position: absolute;
     bottom: 210px;
+    margin-top: -40px;
 }
-
