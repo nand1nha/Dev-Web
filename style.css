@@ -1,0 +1,130 @@
+*{
+    margin: 0;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    box-sizing: border-box;
+}
+header{
+    background-color: black;
+    height: 88px;
+    width: 100%;
+    color: white;
+}
+header #topo{
+    height: 100%;
+    max-width: 1500px;
+    margin: 0 auto;
+
+    display: flex;
+    flex-wrap: wrap;
+}
+
+header .logo, header .menu{
+    height: 100%;
+    width: 50%;
+    
+    display: flex;
+    align-items: center;
+}
+
+header .menu{
+    justify-content: end;
+}
+
+header .menu a{
+    color: white;
+    text-decoration: none;
+    padding: 35px;
+}
+
+header .menu a:hover{
+    background-color: white;
+    color: black;
+    transition-duration: 600ms;
+}
+
+main .cima{
+    max-width: 1500px;
+    margin: 0 auto;
+    margin-top: 20px;
+
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+main .cima .item{
+    width: 100%;
+    height: 250px;
+}
+
+main .cima .img{
+    background-color: gray;
+    width: 100%;
+    height: 100%;
+}
+
+main .cima .texto{
+    text-align: start;
+    padding: 10px 0px;
+    height: 100%;
+}
+
+main .baixo{
+    max-width: 1500px;
+    margin: 0 auto;
+    margin-top: 50px;
+
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+main .banner{
+    width: 33%;
+    height: 217px;
+}
+main .banner .img{
+    background-color: gray;
+    width: 100%;
+    height: 100%;
+}
+main .banner .texto{
+    text-align: center;
+    padding: 10px 0px;
+    height: 100%;
+}
+
+main .suge{
+    width: 67%;
+    height: 300px;
+    gap: 20px;
+
+    display: flex;
+}
+
+main .suge .esq, main .suge .dir{
+    width: 50%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+}
+main .suge .esq .texto, main .suge .dir .texto{
+    
+    padding: 30px 20px;
+}
+
+main .baixo .item{
+    width: 100%;
+    height: 80px;
+    display: flex;
+}
+
+main .baixo .item .img{
+    background-color: gray;
+    width: 30%;
+    height: 100%;
+}
+
