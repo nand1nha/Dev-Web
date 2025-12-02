@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Consulta CNPJ</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <form action="post" id="formCNPJ">
+        <div>
+            <h2>Formulário de Contato</h2>
+        </div>
+        
+        <div>
+            <h3>Dados Pessoais</h3>
+
+            <label for="razao">Nome:</label>
+            <input type="text" id="razao" name="razao">
+
+            <label for="fantasia">Telefone:</label>
+            <input type="text" id="fantasia" name="fantasia">
+
+            <label for="celular">Celular:</label>
+            <input type="text" id="celular" name="celular">
+
+            <label for="email">E-mail:</label>
+            <input type="email" id="email" name="email">
+
+            <label for="dNascimento">Data de nascimento:</label>
+            <input type="date" id="dNascimento" name="dNascimento">
+        </div>
+
+        <div>
+            <h3>Endereço</h3>
+
+            <label for="cep">CEP:</label>
+            <input type="text" id="cep" name="cep" onblur="pesquisacep(this.value);">
+
+            <label for="logradouro">Logradouro:</label>
+            <input type="text" id="logradouro" name="logradouro">
+
+            <label for="numero">Número:</label>
+            <input type="text" id="numero" name="numero">
+
+            <label for="bairro">Bairro:</label>
+            <input type="text" id="bairro" name="bairro">
+
+            <label for="cidade">Cidade:</label>
+            <input type="text" id="cidade" name="cidade">
+
+            <label for="estado">Estado:</label>
+            <input type="text" id="estado" name="estado">
+        </div>
+
+        <div>
+            <h3>Mensagem</h3>
+
+            <textarea id="texto" name="texto" cols="50" rows="10" maxlength="100" onkeyup="digitaTexto(this.value)"></textarea>
+            <span id="qtdtexto">0/100</span>
+        </div>
+        <input class="btn" type="button" value="Buscar" onclick="buscarCNPJ()">
+    </form>
+
+    <script src="https://unpkg.com/imask"></script>
+    <script>
+
+        function digitaTexto(texto){
+        document.getElementById("qtdtexto").innerHTML = campo.value.length + "/100";
+        }
+
+        const maskOptions = {
+            mask: [
+                { mask: '00000-000' }
+            ]
+        };
+
+
+        IMask(document.getElementById('cep'), maskOptions);
+
+
+        function meu_callback(conteudo) {
+            if (!("erro" in conteudo)) {
+                //Atualiza os campos com os valores.
+                document.getElementById('logradouro').value = (conteudo.logradouro);
+                document.getElementById('bairro').value = (conteudo.bairro);
+                document.getElementById('cidade').value = (conteudo.localidade);
+                document.getElementById('estado').value = (conteudo.uf);
+            } //end if.
+            else {
+                //CEP não Encontrado.
+                limpa_formulário_cep();
+                alert("CEP não encontrado.");
+            }
+        }
+
+        function pesquisacep(valor) {
+
+            var cep = valor.replace(/\D/g, '');
+
+
+            if (cep != "") {
+
+
+                var validacep = /^[0-9]{8}$/;
+
+            
+                if (validacep.test(cep)) {
+
+                    document.getElementById('logradouro').value = "...";
+                    document.getElementById('bairro').value = "...";
+                    document.getElementById('cidade').value = "...";
+                    document.getElementById('estado').value = "...";
+
+            
+                    var script = document.createElement('script');
+
+
+                    script.src = 'https://viacep.com.br/ws/' + cep + '/json/?callback=meu_callback';
+
+                    document.body.appendChild(script);
+
+                } 
+                else {
+            
+                    limpa_formulário_cep();
+                    alert("Formato de CEP inválido.");
+                }
+            } 
+            else {
+            
+                limpa_formulário_cep();
+            }
+        };
+        
+    </script>
+</body>
+</html>
